@@ -13,7 +13,9 @@ const todos = (state = [], action) => {
       return [
       ...state.slice(0, action.index),
       ...state.slice(action.index + 1)
-    ]
+    ];
+    case 'clear':
+      return []
     default:
       return state
   }
@@ -38,4 +40,8 @@ store.dispatch({
 store.dispatch({
   type: 'delete',
   index: 1
+});
+
+store.dispatch({
+  type: 'clear'
 });
